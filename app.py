@@ -65,15 +65,8 @@ st.markdown("# ♻️ Smart Waste Classification")
 st.markdown("<p style='color:rgba(255,255,255,0.55); margin-top:-0.5rem;'>Powered by MobileNetV2 · 12-Class Model</p>", unsafe_allow_html=True)
 st.divider()
 
-# ─── Sidebar: API Key ────────────────────────────────────────────────────────
-st.sidebar.markdown("## 🤖 Groq AI Integration")
-env_api_key = os.getenv("GROQ_API_KEY", "")
-if env_api_key:
-    groq_api_key = env_api_key
-    st.sidebar.success("✅ API Key securely loaded from .env")
-else:
-    groq_api_key = st.sidebar.text_input("Enter Groq API Key", type="password")
-    st.sidebar.caption("This unlocks the Smart Disposal Guide powered by Groq.")
+# ─── API Key (loaded silently) ───────────────────────────────────────────────
+groq_api_key = os.getenv("GROQ_API_KEY", "")
 
 # ─── AI Helper Function ──────────────────────────────────────────────────────
 def get_disposal_advice(predicted_class, api_key, base64_image):

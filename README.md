@@ -1,6 +1,6 @@
 # ♻️ Smart Waste Classification System
 
-An AI-powered waste classification web application that uses **MobileNetV2** deep learning and **Groq Vision AI** to identify waste types and provide smart disposal recommendations.
+An AI-powered waste classification web application that uses **MobileNetV2** deep learning to identify waste types and provide smart disposal recommendations.
 
 ### 🌐 [Live Demo → wastemanagement-zadkzkkgepjacdpetjwdyo.streamlit.app](https://wastemanagement-zadkzkkgepjacdpetjwdyo.streamlit.app/)
 
@@ -12,7 +12,7 @@ An AI-powered waste classification web application that uses **MobileNetV2** dee
 - **Real-Time Camera Input** — Take a photo directly from your device camera for instant classification
 - **Image Upload** — Upload JPG/JPEG/PNG images for classification
 - **CV2 Visual Tracking** — Annotates the processed image with a green tracking circle using OpenCV
-- **AI Disposal Guide** — Powered by Groq's Llama 4 Scout vision model to analyze the actual image and provide concise, expert disposal instructions
+- **AI Disposal Guide** — Provides concise, expert disposal instructions based on the classified waste type
 - **Confidence Scoring** — Visual confidence bar with high/moderate/low indicators
 - **Full Probability Breakdown** — Expandable chart showing probabilities across all 12 classes
 
@@ -25,7 +25,7 @@ An AI-powered waste classification web application that uses **MobileNetV2** dee
 | **Frontend** | [Streamlit](https://streamlit.io/) with custom CSS (glassmorphism, dark gradient theme) |
 | **ML Model** | MobileNetV2 (TensorFlow/Keras) — transfer learning, 12-class output |
 | **Computer Vision** | OpenCV (`opencv-python-headless`) for image annotation |
-| **AI Integration** | [Groq API](https://groq.com/) — Llama 4 Scout 17B multimodal model |
+| **AI Integration** | LLM-powered disposal guide (configured via API key) |
 | **Deployment** | Streamlit Community Cloud |
 
 ---
@@ -101,8 +101,8 @@ The app will open at `http://localhost:8501`
                      │  (Green Circle)  │              │
                      └──────────────────┘              ▼
                                               ┌─────────────────┐
-                                              │  Groq Vision AI │
-                                              │  (Disposal Guide)│
+                                              │   AI Disposal   │
+                                              │     Guide       │
                                               └─────────────────┘
 ```
 
@@ -110,7 +110,7 @@ The app will open at `http://localhost:8501`
 2. **Preprocessing** — Image is resized to 224×224 and normalized to [0, 1]
 3. **Classification** — MobileNetV2 predicts probabilities across 12 waste categories
 4. **Annotation** — OpenCV draws a green tracking circle on the original image
-5. **AI Analysis** — The image + predicted class are sent to Groq's vision model for expert disposal advice
+5. **AI Analysis** — The predicted class is sent to the AI model for expert disposal advice
 
 ---
 
@@ -165,5 +165,5 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 <p align="center">
-  Built with ❤️ using Streamlit, TensorFlow & Groq AI
+  Built with ❤️ using Streamlit & TensorFlow
 </p>
